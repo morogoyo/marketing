@@ -1,0 +1,12 @@
+---
+- name: Ping Test Playbook
+  hosts: localhost
+  tasks:
+    - name: Ping 8.8.8.8 to verify connectivity
+      ansible.builtin.command:
+        cmd: ping -c 4 8.8.8.8
+      register: ping_output
+
+    - name: Display Ping Result
+      ansible.builtin.debug:
+        msg: "{{ ping_output.stdout }}"

@@ -47,9 +47,9 @@ Vagrant.configure("2") do |config|
       # Create and run the Ansible Docker container
       docker run -d \
         --name ansible \
-        -v ansible_data:/vagrant/ansible_data \           # Mount Docker volume for Ansible data
-        -v /vagrant/playbooks:/playbooks \       # Mount synced folder for playbooks
-        -v /var/run/docker.sock:/var/run/docker.sock \  # Mount Docker socket
+        -v ansible_data:/vagrant/ansible_data \
+        -v /vagrant/playbooks:/playbooks \
+        -v /var/run/docker.sock:/var/run/docker.sock \
         cytopia/ansible tail -f /dev/null
     fi
   SHELL

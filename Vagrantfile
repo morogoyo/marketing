@@ -49,8 +49,9 @@ Vagrant.configure("2") do |config|
         --name ansible \
         -v ansible_data:/vagrant/ansible_data \
         -v /vagrant/playbooks:/playbooks \
+        -v /vagrant:/vagrant \
         -v /var/run/docker.sock:/var/run/docker.sock \
-        cytopia/ansible tail -f /dev/null
+        cytopia/ansible sh -c "pip3 install requests docker && tail -f /dev/null"
     fi
   SHELL
 
